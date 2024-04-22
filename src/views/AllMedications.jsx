@@ -59,6 +59,7 @@ export const AllMedications = () => {
 
     return (
         <>
+        <div className="title text-5xl text-center m-2">All Medications</div>
                 <header className="page-header flex justify-evenly">
           <div className="drop-down-box">
             <select
@@ -66,9 +67,9 @@ export const AllMedications = () => {
                 setChosenValue(event.target.value);
               }}
               type="filter"
-              className="filter p-2"
+              className="filter p-2 border-2 border-solid border-black bg-slate-200"
             >
-              <option value="0">Select ValueSet</option>
+              <option value="0">Select Beta-Blocker</option>
               {valueSets.map((set) => {
                 return (
                   <option value={set.id} key={set.id}>
@@ -80,8 +81,7 @@ export const AllMedications = () => {
           </div>
           
         </header>
-        <div className="title text-5xl text-center">All Medications</div>
-        <div>Total Patients: {totalPatients}</div>
+        <div className="patients text-xl text-center">Total Patients: {totalPatients}</div>
         
         <div className="recipes m-5 grid lg:grid-cols-4 sm:grid-cols-2">
         {filteredMedications.map((medication) => {

@@ -17,7 +17,6 @@ export const Login = () => {
         "Content-Type": "application/json",
       },
     })
-    
       .then((res) => res.json())
       .then((authInfo) => {
         if (authInfo.token) {
@@ -30,7 +29,7 @@ export const Login = () => {
   };
 
   return (
-    <main className="container--login">
+    <main className="container--login text-center">
       <dialog className="dialog dialog--auth" ref={existDialog}>
         <div>User does not exist</div>
         <button
@@ -40,54 +39,62 @@ export const Login = () => {
           Close
         </button>
       </dialog>
-
-      <section>
-        <form className="form--login" onSubmit={handleLogin}>
-          <h1 className="text-4xl mt-7 mb-3">Vandy Medications</h1>
-          <h2 className="text-xl mb-10">Please sign in</h2>
-          <fieldset className="mb-4">
-            <label htmlFor="inputusername"> UserName </label>
-            <input
-              type="username"
-              id="inputusername"
-              value={username}
-              onChange={(evt) => setUsername(evt.target.value)}
-              className="form-control"
-              placeholder="username"
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset className="mb-4">
-            <label htmlFor="inputPassword"> Password </label>
-            <input
-              type="password"
-              id="inputPassword"
-              value={password}
-              onChange={(evt) => setPassword(evt.target.value)}
-              className="form-control"
-              placeholder="Password"
-            />
-          </fieldset>
-          <fieldset>
-            <button
-              type="submit"
-              className="button p-3 rounded-md bg-blue-800 text-blue-100"
-            >
-              Sign in
-            </button>
-          </fieldset>
-        </form>
-      </section>
-      <div className="loginLinks">
-        <section className="link--register">
-          <Link
-            className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-            to="/register"
+      <div className="box flex flex-col text-center border-2 border-solid border-black m-6 w-96 bg-yellow-300">
+        <section>
+          <form
+            className="form--login border-2 border-solid border-black"
+            onSubmit={handleLogin}
           >
-            Not a member yet?
-          </Link>
+            <h1 className="text-4xl mt-7 mb-3 font-bold text-center">
+              Vandy Medications
+            </h1>
+            <h2 className="text-xl mb-10 font-bold text-center">
+              Please sign in
+            </h2>
+            <fieldset className="mb-4">
+              <label htmlFor="inputusername"> UserName: </label>
+              <input
+                type="username"
+                id="inputusername"
+                value={username}
+                onChange={(evt) => setUsername(evt.target.value)}
+                className="form-control bg-slate-200"
+                placeholder="username"
+                required
+                autoFocus
+              />
+            </fieldset>
+            <fieldset className="mb-4">
+              <label htmlFor="inputPassword"> Password: </label>
+              <input
+                type="password"
+                id="inputPassword"
+                value={password}
+                onChange={(evt) => setPassword(evt.target.value)}
+                className="form-control  bg-slate-200"
+                placeholder="Password"
+              />
+            </fieldset>
+            <fieldset>
+              <button
+                type="submit"
+                className="button p-3 rounded-md bg-blue-800 text-blue-100"
+              >
+                Sign in
+              </button>
+            </fieldset>
+          </form>
         </section>
+        <div className="loginLinks">
+          <section className="link--register">
+            <Link
+              className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+              to="/register"
+            >
+              Not a member yet?
+            </Link>
+          </section>
+        </div>
       </div>
     </main>
   );

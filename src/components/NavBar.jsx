@@ -4,13 +4,13 @@ import "./NavBar.css"
 export const NavBar = () => {
     const navigate = useNavigate()
     return (
-        <ul className="navbar mt-4 text-center pb-10">
-            <li className="navbar__item pl-10">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/medications"}>medications</NavLink>
+        <ul className="navbar  pt-5 pb-5 bg-blue-300">
+            <li className="navbar__item pl-10 flex justify-evenly ">
+                <NavLink className="text-center underline text-blue-600 hover:text-purple-700" to={"/medications"}>medications</NavLink>
             </li>
             {
                 (localStorage.getItem("token") !== null) ?
-                    <li className="navbar__item">
+                    <li className="navbar__item text-right">
                         <button className="underline text-blue-600 hover:text-purple-700"
                             onClick={() => {
                                 localStorage.removeItem("token")
